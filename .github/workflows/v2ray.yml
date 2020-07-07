@@ -40,7 +40,10 @@ jobs:
     - name: build V2ray v2ray
       run: 
           cd ./v2ray-core/main &&
-          go build -o $HOME/v2ray -ldflags "-s -w" &&
+          go build -o $HOME/v2ray -ldflags "-s -w"
+    
+    - name: build V2ray v2ctl
+      run: 
           cd ./v2ray-core/infra/control/main &&
           go build -o $HOME/v2ctl -tags confonly -ldflags "-s -w" 
           #ls -l 
