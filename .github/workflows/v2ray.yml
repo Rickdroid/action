@@ -46,7 +46,10 @@ jobs:
           go build -o $HOME/v2ctl -tags confonly -ldflags "-s -w" 
           
     - name: test V2ray
-      run: $HOME/v2ray --version
+      run: 
+          $HOME/v2ray --version &&
+          cd $HOME &&
+          pwd
     
     - name: upload V2ray
       uses: actions/upload-artifact@v1
