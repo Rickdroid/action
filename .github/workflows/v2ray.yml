@@ -29,8 +29,7 @@ jobs:
     # Runs a set of commands using the runners shell
     - name: download code of V2ray
       run: 
-          git clone https://github.com/v2ray/v2ray-core.git \
-          ls -l
+          git clone https://github.com/v2ray/v2ray-core.git 
           #wget https://raw.githubusercontent.com/v2ray/v2ray-core/master/release/user-package.sh
     
    # - name: edit env for install V2ray
@@ -39,10 +38,10 @@ jobs:
           
     - name: build V2ray v2ray
       run: 
-          cd ./v2ray/v2ray-core/main \
-          go build -o $HOME/v2ray -ldflags "-s -w" \      
-          cd ./v2ray/v2ray-core/infra/control/main \
-          go build -o $HOME/v2ctl -tags confonly -ldflags "-s -w" \
+          cd ./v2ray/v2ray-core/main &&
+          go build -o $HOME/v2ray -ldflags "-s -w" &&
+          cd ./v2ray/v2ray-core/infra/control/main &&
+          go build -o $HOME/v2ctl -tags confonly -ldflags "-s -w" &&
           #ls -l 
           #./user-package.sh tgz windows 
           
