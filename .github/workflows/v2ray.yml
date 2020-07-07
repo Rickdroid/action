@@ -29,7 +29,8 @@ jobs:
     # Runs a set of commands using the runners shell
     - name: download code of V2ray
       run: 
-          git clone https://github.com/v2ray/v2ray-core.git 
+          git clone https://github.com/v2ray/v2ray-core.git &&
+          ls
           #wget https://raw.githubusercontent.com/v2ray/v2ray-core/master/release/user-package.sh
     
    # - name: edit env for install V2ray
