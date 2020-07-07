@@ -29,21 +29,21 @@ jobs:
     # Runs a set of commands using the runners shell
     - name: download code of V2ray
       run: 
-          #go get -u v2ray.com/core/...
-          wget https://raw.githubusercontent.com/v2ray/v2ray-core/master/release/user-package.sh
+          go get -u v2ray.com/core/...
+          #wget https://raw.githubusercontent.com/v2ray/v2ray-core/master/release/user-package.sh
     
-    - name: edit env for install V2ray
-      run: 
-          chmod 755 user-package.sh
+   # - name: edit env for install V2ray
+   #   run: 
+          #chmod 755 user-package.sh
           
     - name: build V2ray
       run: 
-          #cd $(go env GOPATH)/src/v2ray.com/core/main
-          #env CGO_ENABLED=0 go build -o $HOME/v2ray -ldflags "-s -w"
-          #cd $(go env GOPATH)/src/v2ray.com/core/infra/control/main
-          #env CGO_ENABLED=0 go build -o $HOME/v2ctl -tags confonly -ldflags "-s -w"
-          ls -l 
+          cd $(go env GOPATH)/src/v2ray.com/core/main \
+          env CGO_ENABLED=0 go build -o $HOME/v2ray -ldflags "-s -w" \
+          cd $(go env GOPATH)/src/v2ray.com/core/infra/control/main \
+          env CGO_ENABLED=0 go build -o $HOME/v2ctl -tags confonly -ldflags "-s -w" \
+          #ls -l 
           #./user-package.sh tgz windows 
           
     - name: test V2ray
-      run: v2ray --version
+      run: $HOME/v2ray --version
