@@ -52,10 +52,10 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: v2ray
-        path: ./v2ray
+        path: v2ray
     
     - name: upload V2ctl
       uses: actions/upload-artifact@v1
       with:
         name: v2ctl
-        path: ./v2ctl
+        path: v2ctl
