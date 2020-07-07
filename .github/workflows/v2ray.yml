@@ -30,8 +30,6 @@ jobs:
     - name: download code of V2ray
       run: 
           git clone https://github.com/v2ray/v2ray-core.git &&
-          ls
-          #wget https://raw.githubusercontent.com/v2ray/v2ray-core/master/release/user-package.sh
     
    # - name: edit env for install V2ray
    #   run: 
@@ -46,8 +44,8 @@ jobs:
       run: 
           cd ./v2ray-core/infra/control/main &&
           go build -o $HOME/v2ctl -tags confonly -ldflags "-s -w" 
-          #ls -l 
-          #./user-package.sh tgz windows 
           
     - name: test V2ray
       run: $HOME/v2ray --version
+    
+    - name: upload V2ray
