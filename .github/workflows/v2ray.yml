@@ -55,7 +55,7 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: v2ray
-        path: /home/runnerv2ray
+        path: /home/runner/v2ray
     
     - name: upload V2ctl
       uses: actions/upload-artifact@v1
