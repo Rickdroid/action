@@ -27,18 +27,17 @@ jobs:
       uses: actions/setup-go@v2.1.0
    
     # Runs a set of commands using the runners shell
-    - name: internetenv V2ray
+    - name: download code of V2ray
       run: 
-          export http_proxy=http://localhost:1080
-          export https_proxy=http://localhost:1080
-    - name: download V2ray
-      run: 
-          wget https://raw.githubusercontent.com/v2ray/v2ray-core/master/release/user-package.sh
-          chmod 755 user-package.sh
+          go get -u v2ray.com/core/...
     
     - name: build V2ray
       run: 
-          ./user-package.sh
+          #cd $(go env GOPATH)/src/v2ray.com/core/main
+          #env CGO_ENABLED=0 go build -o $HOME/v2ray -ldflags "-s -w"
+          #cd $(go env GOPATH)/src/v2ray.com/core/infra/control/main
+          #env CGO_ENABLED=0 go build -o $HOME/v2ctl -tags confonly -ldflags "-s -w"
+          $(go env GOPATH)/src/v2ray.com/core/release/user-package.sh
           
     - name: test V2ray
       run: v2ray --version
