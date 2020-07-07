@@ -49,3 +49,13 @@ jobs:
       run: $HOME/v2ray --version
     
     - name: upload V2ray
+      uses: actions/upload-artifact@v1
+      with:
+        name: v2ray
+        path: $HOME/v2ray
+    
+    - name: upload V2ctl
+      uses: actions/upload-artifact@v1
+      with:
+        name: v2ctl
+        path: $HOME/v2ctl
