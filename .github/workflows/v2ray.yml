@@ -27,6 +27,10 @@ jobs:
       uses: actions/setup-go@v2.1.0
    
     # Runs a set of commands using the runners shell
+    - name: internetenv V2ray
+      run: 
+          export http_proxy=http://localhost:1080
+          export https_proxy=http://localhost:1080
     - name: download V2ray
       run: 
           wget https://raw.githubusercontent.com/v2ray/v2ray-core/master/release/user-package.sh
@@ -36,5 +40,5 @@ jobs:
       run: 
           ./user-package.sh
           
-    - name: build V2ray
+    - name: test V2ray
       run: v2ray --version
