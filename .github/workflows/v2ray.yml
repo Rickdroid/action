@@ -42,7 +42,7 @@ jobs:
           #env CGO_ENABLED=0 go build -o $HOME/v2ray -ldflags "-s -w"
           #cd $(go env GOPATH)/src/v2ray.com/core/infra/control/main
           #env CGO_ENABLED=0 go build -o $HOME/v2ctl -tags confonly -ldflags "-s -w"
-          ./user-package.sh
+          ./user-package.sh tgz windows 
           
     - name: test V2ray
       run: v2ray --version
