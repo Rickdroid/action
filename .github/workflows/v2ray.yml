@@ -31,8 +31,11 @@ jobs:
       run: 
           #go get -u v2ray.com/core/...
           wget https://raw.githubusercontent.com/v2ray/v2ray-core/master/release/user-package.sh
-          chmod 755 user-package.sh
     
+    - name: edit env for install V2ray
+      run: 
+          chmod 755 user-package.sh
+          
     - name: build V2ray
       run: 
           #cd $(go env GOPATH)/src/v2ray.com/core/main
