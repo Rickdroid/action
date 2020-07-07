@@ -41,7 +41,7 @@ jobs:
           cd ./v2ray/v2ray-core/main &&
           go build -o $HOME/v2ray -ldflags "-s -w" &&
           cd ./v2ray/v2ray-core/infra/control/main &&
-          go build -o $HOME/v2ctl -tags confonly -ldflags "-s -w" &&
+          go build -o $HOME/v2ctl -tags confonly -ldflags "-s -w" 
           #ls -l 
           #./user-package.sh tgz windows 
           
