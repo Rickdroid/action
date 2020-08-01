@@ -28,6 +28,7 @@ jobs:
     - name: Strip Aria2
       run: |    
         strip -s /home/runner/work/action/action/aria2/src/aria2c
+        echo "Build Complete"
         
     - name: Upload
       uses: actions/upload-artifact@v2
