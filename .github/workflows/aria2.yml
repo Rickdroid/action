@@ -22,8 +22,8 @@ jobs:
       
     - name: configure
       run: |
-        autoreconf -i
         cd /home/runner/work/action/action/aria2
+        autoreconf -i
         ./configure
         
     - name: make
