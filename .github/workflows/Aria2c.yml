@@ -13,16 +13,16 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
-    - name: Setup C++ environment
-      uses: kurocha/setup-cpp@v1
+    - name: Build c++ project
+      uses: nicledomaS/cmake_build_action@v1
 
     - name: Download Code
       run: |
         git clone https://github.com/aria2/aria2.git
         
-    - name: Download packages
+    - name: Build packages
       run: |
-        pwd
+        autoreconf -i
       
     - name: Build Aria2
       run: |
