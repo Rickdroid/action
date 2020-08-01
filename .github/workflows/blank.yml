@@ -1,0 +1,58 @@
+name: Aria2 Bulid
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Setup C++ environment
+      uses: kurocha/setup-cpp@v1
+
+    - name: Download Code
+      run: |
+        git clone https://github.com/aria2/aria2.git
+        
+    - name: Download packages
+      run: |
+        apt install bison \
+        libssh2-devel \
+        expat-devel \
+        gmp-devel \
+        nettle-devel \
+        libuv-devel \
+        libssh2-devel \
+        zlib-devel \
+        c-ares-devel \
+        cppunit-devel \
+        gnutls-devel \
+        libgcrypt-devel \
+        libxml2-devel \
+        sqlite-devel \
+        gettext \
+        lzma-devel \
+        xz-devel \
+        gperftools \
+        gperftools-devel \
+        gperftools-libs \
+        jemalloc-devel \
+        ls \
+        pwd
+      
+    - name: Build Aria2
+      run: |
+        ./configure && make && make install
+        
+    - name: upload
+      uses: actions/upload-artifact@v2
+      with:
+        name: aria2c
+        path: ./src/aria2c
+
