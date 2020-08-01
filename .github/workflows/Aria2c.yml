@@ -22,28 +22,6 @@ jobs:
         
     - name: Download packages
       run: |
-        apt install bison \
-        libssh2-devel \
-        expat-devel \
-        gmp-devel \
-        nettle-devel \
-        libuv-devel \
-        libssh2-devel \
-        zlib-devel \
-        c-ares-devel \
-        cppunit-devel \
-        gnutls-devel \
-        libgcrypt-devel \
-        libxml2-devel \
-        sqlite-devel \
-        gettext \
-        lzma-devel \
-        xz-devel \
-        gperftools \
-        gperftools-devel \
-        gperftools-libs \
-        jemalloc-devel \
-        ls \
         pwd
       
     - name: Build Aria2
