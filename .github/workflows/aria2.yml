@@ -1,4 +1,4 @@
-name: C/C++ CI
+name: Aria2c
 
 on:
   push:
@@ -22,7 +22,7 @@ jobs:
       
     - name: configure
       run: |
-        cd /home/runner/work/action/action/
+        cd /home/runner/work/action/action/aria2
         ./configure
         
     - name: make
