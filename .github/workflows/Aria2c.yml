@@ -26,11 +26,11 @@ jobs:
       
     - name: Build Aria2
       run: |
-        ./configure && make && make install
+        /home/runner/work/action/action/configure && make && make install
         
     - name: upload
       uses: actions/upload-artifact@v2
       with:
         name: aria2c
-        path: ./src/aria2c
+        path: /home/runner/work/action/action/src/aria2c
 
