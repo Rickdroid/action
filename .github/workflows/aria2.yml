@@ -18,6 +18,7 @@ jobs:
       run: |
         git clone https://github.com/aria2/aria2.git
         pwd
+        ls
       
     - name: configure
       run: |
