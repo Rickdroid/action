@@ -26,9 +26,9 @@ jobs:
         autoreconf -i
         ./configure
         make
-
+        
     - name: upload
       uses: actions/upload-artifact@v2
       with:
         name: aria2c
-        path: /home/runner/work/action/action/src/aria2c   
+        path: /home/runner/work/action/action/aria2/src/aria2c   
