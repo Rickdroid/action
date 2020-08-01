@@ -17,17 +17,19 @@ jobs:
     - name: Download Code
       run: |
         git clone https://github.com/aria2/aria2.git
-        pwd
-        ls
       
-    - name: configure
+    - name: Build Aria2
       run: |
         cd /home/runner/work/action/action/aria2
         autoreconf -i
         ./configure
         make
         
-    - name: upload
+    - name: Strip Aria2
+      run: |    
+        strip -s /home/runner/work/action/action/aria2/src/aria2c
+        
+    - name: Upload
       uses: actions/upload-artifact@v2
       with:
         name: aria2c
