@@ -25,7 +25,7 @@ jobs:
         ./configure
         make
         
-    - name: Strip Aria2
+    - name: Strip Aria2 Binary
       run: |    
         strip -s /home/runner/work/action/action/aria2/src/aria2c
         echo "Build Complete"
