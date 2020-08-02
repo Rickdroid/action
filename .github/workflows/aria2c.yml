@@ -22,7 +22,7 @@ jobs:
       run: |
         cd /home/runner/work/action/action/aria2
         autoreconf -i
-        ./configure
+        ./configure --without-gnutls --with-openssl
         make
         
     - name: Strip Aria2 Binary
