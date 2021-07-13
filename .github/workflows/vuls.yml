@@ -24,41 +24,27 @@ jobs:
 
     # Runs a single command using the runners shell
     - name: Setup Go environment
-      uses: actions/setup-go@v2.1.0
+      uses: actions/setup-go@v2.1.3
    
     # Runs a set of commands using the runners shell
-    - name: download code of V2ray
+    - name: download code of vuls
       run: 
-          git clone https://github.com/v2ray/v2ray-core.git
+          git clone https://github.com/future-architect/vuls.git
     
-   # - name: edit env for install V2ray
-   #   run: 
-          #chmod 755 user-package.sh
           
-    - name: build V2ray v2ray
+    - name: build vuls
       run: 
-          cd ./v2ray-core/main &&
-          go build -o $HOME/v2ray -ldflags "-s -w"
-    
-    - name: build V2ray v2ctl
-      run: 
-          cd ./v2ray-core/infra/control/main &&
-          go build -o $HOME/v2ctl -tags confonly -ldflags "-s -w" 
+          cd ./vuls/ &&
+          make install
           
-    - name: test V2ray
+    - name: test vuls
       run: 
-          $HOME/v2ray --version &&
+          $HOME/vuls --h &&
           cd $HOME &&
           pwd
-    
-    - name: upload V2ray
-      uses: actions/upload-artifact@v1
+       
+    - name: upload vuls
+      uses: actions/upload-artifact@v2.2.4
       with:
-        name: v2ray
-        path: /home/runner/v2ray
-    
-    - name: upload V2ctl
-      uses: actions/upload-artifact@v1
-      with:
-        name: v2ctl
-        path: /home/runner/v2ctl
+        name: vuls
+        path: /home/runner/vuls
